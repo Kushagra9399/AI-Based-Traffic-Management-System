@@ -2,6 +2,7 @@ import time
 from gpiozero import LED
 
 class led:
+    a = b = c = d = 0
     def __init__(self,a,b,c,d):
         self.a = a
         self.b = b
