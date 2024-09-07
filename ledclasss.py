@@ -49,6 +49,4 @@ class LEDController:
         self.led4.off()
     
     def is_on(self):
-        if self.led3.on():
-            return True
-        return False
+        return self.led2.on()
