@@ -8,6 +8,7 @@ class cam_class:
     def count_car(self):
         haar_cascade = 'cars.xml'
         count = []
+        cou = 0
         detect = []
         offset = 6
         cap = cv2.VideoCapture(self.video)
@@ -40,11 +41,12 @@ class cam_class:
                     cv2.circle(frames, center, 4, (0, 0, 255), -1)
 
                     for (x, y) in detect:
-                        count += 1
+                        cou += 1
                         cv2.line(frames, (25, 550), (1200, 550), (0, 127, 255), 3)
                         detect.remove((x, y))
+            count.append(cou)
             frame_count +=1
             # De-allocate any associated memory usage
             end_time = time.perf_counter()
             cv2.destroyAllWindows()
-            return max(count)
+        return max(count)
